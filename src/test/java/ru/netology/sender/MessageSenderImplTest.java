@@ -13,9 +13,6 @@ import ru.netology.i18n.LocalizationService;
 import java.util.*;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 public class MessageSenderImplTest {
 
     static MessageSenderImpl sut;
