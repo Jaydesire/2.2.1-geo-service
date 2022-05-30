@@ -11,17 +11,17 @@ import java.util.stream.Stream;
 
 class LocalizationServiceImplTest {
 
-    LocalizationServiceImpl sut;
+    private LocalizationServiceImpl localizationService;
 
     @BeforeEach
     void setUp() {
-        sut = new LocalizationServiceImpl();
+        localizationService = new LocalizationServiceImpl();
     }
 
     @ParameterizedTest
     @MethodSource("source")
     void localeTest(Country country, String expected) {
-        Assertions.assertEquals(sut.locale(country), expected);
+        Assertions.assertEquals(expected, localizationService.locale(country));
     }
 
     private static Stream<Arguments> source(){

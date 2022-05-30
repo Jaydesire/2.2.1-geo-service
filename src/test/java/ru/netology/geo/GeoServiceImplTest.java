@@ -13,20 +13,20 @@ import java.util.stream.Stream;
 
 class GeoServiceImplTest {
 
-    static GeoServiceImpl sut;
+    private GeoServiceImpl geoService;
 
     @BeforeEach
     void setUp() {
-        sut = new GeoServiceImpl();
+        geoService = new GeoServiceImpl();
     }
 
     @ParameterizedTest
     @MethodSource("source")
     void byIp(String ip, Location location) {
-        Assertions.assertEquals(sut.byIp(ip).getCity(), location.getCity());
-        Assertions.assertEquals(sut.byIp(ip).getCountry(), location.getCountry());
-        Assertions.assertEquals(sut.byIp(ip).getStreet(), location.getStreet());
-        Assertions.assertEquals(sut.byIp(ip).getBuiling(), location.getBuiling());
+        Assertions.assertEquals(location.getCity(), geoService.byIp(ip).getCity());
+        Assertions.assertEquals(location.getCountry(), geoService.byIp(ip).getCountry());
+        Assertions.assertEquals(location.getStreet(), geoService.byIp(ip).getStreet());
+        Assertions.assertEquals(location.getBuiling(), geoService.byIp(ip).getBuiling());
     }
 
     private static Stream<Arguments> source() {
